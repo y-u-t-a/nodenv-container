@@ -2,8 +2,7 @@ FROM ubuntu:latest
 
 ARG DEFAULT_NODE_VERSION=14.5.0
 
-WORKDIR /root
-COPY docker-entrypoint.sh .
+COPY docker-entrypoint.sh /root
 
 # Install package and nodenv https://github.com/nodenv/nodenv#basic-github-checkout
 RUN apt-get update && apt-get install -y \
@@ -27,5 +26,5 @@ RUN eval "$(nodenv init -)" \
     && nodenv install $DEFAULT_NODE_VERSION \
     && nodenv global $DEFAULT_NODE_VERSION
 
-ENTRYPOINT [ "bash", "docker-entrypoint.sh" ]
+ENTRYPOINT [ "bash", "/root/docker-entrypoint.sh" ]
 CMD [ "nodenv" ]
