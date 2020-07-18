@@ -14,8 +14,8 @@ RUN apt-get update && apt-get install -y \
     && cd ~/.nodenv && src/configure && make -C src
 
 # Add nodenv command $PATH
-ENV PATH ~/.nodenv/bin:$PATH
-ENV PATH ~/.nodenv/shims:$PATH
+ENV PATH /root/.nodenv/bin:$PATH
+ENV PATH /root/.nodenv/shims:$PATH
 
 # Install node-build As a nodenv plugin https://github.com/nodenv/node-build#installation
 RUN eval "$(nodenv init -)" \
