@@ -17,8 +17,7 @@ ENV PATH /root/.nodenv/bin:$PATH
 ENV PATH /root/.nodenv/shims:$PATH
 
 # Install node-build As a nodenv plugin https://github.com/nodenv/node-build#installation
-RUN eval "$(nodenv init -)" \
-    && mkdir -p "$(nodenv root)"/plugins \
+RUN mkdir -p "$(nodenv root)"/plugins \
     && git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
 
 # Install "DEFAULT_NODE_VERSION" node
